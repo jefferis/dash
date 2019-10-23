@@ -1,4 +1,4 @@
-runSelectionAsJob <- function(importEnv=TRUE, attachPackages=TRUE) {
+runSelectionAsJob <- function(importEnv=FALSE, attachPackages=FALSE) {
 
   ## Get the document context.
   context <- rstudioapi::getActiveDocumentContext()$selection[[1]]$text
@@ -42,4 +42,13 @@ runSelectionAsJob <- function(importEnv=TRUE, attachPackages=TRUE) {
 
   }
 
+}
+
+
+runSelectionAsJobWithEnv <- function() {
+  runSelectionAsJob(importEnv=TRUE, attachPackages=FALSE)
+}
+
+runSelectionAsJobWithEnvPackages <- function() {
+  runSelectionAsJob(importEnv=TRUE, attachPackages=TRUE)
 }
